@@ -34,13 +34,14 @@ public class Port {
         int count = 1;
         int[][] groups = new int[lenOut][in.size()];
         for (int i = 0; i < in.size(); i++) {
-
-            for (int j = 0; j < in.get(i).size(); j++) {
-                int m = lenOut / in.get(i).size();
-                for (int k = 0; k < m; k++) {
-                    groups[k + m * j][i] = j;
-                }
-            }
+           for (int c = 0; c < count; c++) {
+               for (int g = 0; g < in.get(i).size(); g++) {
+                   for (int h = 0; h < (lenOut / in.get(i).size() / count); h++) {
+                       groups[h + g * lenOut / in.get(i).size() / count][i] = in.get(i).get(g);
+                   }
+               }
+           }
+           count *= in.get(i).size();
         }
         return groups;
     }
