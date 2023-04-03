@@ -31,6 +31,7 @@ public class Port {
         for (int i = 0; i < in.size(); i++) {
             lenOut *= in.get(i).size();
         }
+        int count = 1;
         int[][] groups = new int[lenOut][in.size()];
         for (int i = 0; i < in.size(); i++) {
 
