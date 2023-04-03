@@ -25,4 +25,22 @@ public class Port {
         }
         return intOut;
     }
+
+    public int[][] getUniqueGroups(List<List<Integer>> in) {
+        int lenOut = 1;
+        for (int i = 0; i < in.size(); i++) {
+            lenOut *= in.get(i).size();
+        }
+        int[][] groups = new int[lenOut][in.size()];
+        for (int i = 0; i < in.size(); i++) {
+
+            for (int j = 0; j < in.get(i).size(); j++) {
+                int m = lenOut / in.get(i).size();
+                for (int k = 0; k < m; k++) {
+                    groups[k + m * j][i] = j;
+                }
+            }
+        }
+        return groups;
+    }
 }
