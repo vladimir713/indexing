@@ -31,17 +31,19 @@ public class Port {
         for (int i = 0; i < in.size(); i++) {
             lenOut *= in.get(i).size();
         }
-        int count = 1;
+        int circles = 1;
         int[][] groups = new int[lenOut][in.size()];
-        for (int i = 0; i < in.size(); i++) {
-           for (int c = 0; c < count; c++) {
-               for (int g = 0; g < in.get(i).size(); g++) {
-                   for (int h = 0; h < (lenOut / in.get(i).size() / count); h++) {
-                       groups[h + g * lenOut / in.get(i).size() / count][i] = in.get(i).get(g);
+        for (int colunm = 0; colunm < in.size(); colunm++) {
+           for (int countCircles = 0; countCircles < circles; countCircles++) {
+               int columnHeight = lenOut / in.get(colunm).size() / circles;
+               for (int currentElement = 0; currentElement < in.get(colunm).size(); currentElement++) {
+                   for (int h = 0; h < columnHeight; h++) {
+                       groups[h + countCircles * circles + currentElement * columnHeight][colunm]
+                               = in.get(colunm).get(currentElement);
                    }
                }
            }
-           count *= in.get(i).size();
+           circles *= in.get(colunm).size();
         }
         return groups;
     }
