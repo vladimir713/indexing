@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2023, Vladimir Chugunov. All rights reserved.
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +42,10 @@ public class Port {
                int columnHeight = lenOut / in.get(colunm).size() / circles;
                for (int currentElement = 0; currentElement < in.get(colunm).size(); currentElement++) {
                    for (int h = 0; h < columnHeight; h++) {
-                       groups[h + countCircles * circles + currentElement * columnHeight][colunm]
-                               = in.get(colunm).get(currentElement);
+                       groups[h
+                               + columnHeight * currentElement
+                               + countCircles * columnHeight * in.get(colunm)
+                               .size()][colunm] = in.get(colunm).get(currentElement);
                    }
                }
            }

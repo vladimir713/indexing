@@ -1,10 +1,11 @@
-import org.testng.annotations.Test;
+/*
+ * Copyright (c) 2023, Vladimir Chugunov. All rights reserved.
+ */
 
-import java.lang.reflect.Array;
+import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Mytest {
